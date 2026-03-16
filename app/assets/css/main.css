@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*";
+
+/* ============================================================
+   Design Tokens — Luxury Editorial / Vintage Petroleum
+   ============================================================ */
+@theme static {
+  --container-8xl: 90rem;
+
+  /* Core palette */
+  --color-ink:       #1a1208;
+  --color-parchment: #f5eedc;
+  --color-crude:     #1c1410;
+  --color-amber:     #b5620a;  /* decorative accents only */
+  --color-gold:      #c8963c;  /* decorative accents only */
+  --color-sand:      #c9a96e;
+  --color-cream:     #faf6ec;
+
+  /* Accessible text variants (WCAG AA on their respective backgrounds) */
+  --color-link:      #7a4e0e;  /* 6.5:1 on parchment */
+  --color-link-hover:#5a3a08;  /* 9:1 on parchment  */
+  --color-heading3:  #8a4800;  /* 5.2:1 on parchment */
+  --color-code-text: #8a4800;  /* 5.2:1 on parchment */
+  --color-sidebar-text: #e0c99a; /* 8:1 on crude     */
+  --color-sidebar-hover: #f0ddb0; /* 11:1 on crude   */
+
+  /* Typography */
+  --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif:   'EB Garamond', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+:root {
+  --ui-container:        var(--container-8xl);
+  --ui-bg:               var(--color-cream);
+  --ui-bg-elevated:      #ffffff;
+  --ui-bg-muted:         #f0e8d4;
+  --ui-bg-inverted:      var(--color-ink);
+  --ui-text:             var(--color-ink);
+  --ui-text-muted:       #5a4530;
+  --ui-text-tinted:      #4a3520;
+  --ui-text-highlighted: var(--color-ink);
+  --ui-text-dimmed:      #7a6248;
+  --ui-border:           rgba(90, 69, 48, 0.2);
+  --ui-border-muted:     rgba(90, 69, 48, 0.12);
+  --ui-border-accented:  rgba(181, 98, 10, 0.35);
+
+  /* Category colours */
+  --cat-person:       #8b3a1e;
+  --cat-company:      #1a4a6e;
+  --cat-country:      #2a5e2a;
+  --cat-organisation: #5a2a6e;
+  --cat-event:        #6e4a1a;
+  --cat-concept:      #2a5a5e;
+  --cat-place:        #4a5e1a;
+}
+
+/* ============================================================
+   Noise texture overlay
+   ============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Reading Progress Bar
+   ============================================================ */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, var(--color-amber), var(--color-gold));
+  z-index: 10000;
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   Base typography
+   ============================================================ */
+html {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+}
+
+h3 {
+  color: var(--color-heading3);
+}
+
+a {
+  color: var(--color-link);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* ============================================================
+   Sidebar — dark crude
+   ============================================================ */
+aside {
+  background-color: var(--color-crude) !important;
+  color: var(--color-sidebar-text) !important;
+  border-color: rgba(197, 150, 60, 0.15) !important;
+}
+
+aside a {
+  color: var(--color-sidebar-text) !important;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+}
+
+aside a:hover {
+  color: var(--color-sidebar-hover) !important;
+}
+
+/* ============================================================
+   Page content — book page effect
+   ============================================================ */
+main {
+  background-color: var(--color-parchment);
+}
+
+article, .prose {
+  box-shadow:
+    2px 0 6px rgba(26, 18, 8, 0.10),
+    -2px 0 6px rgba(26, 18, 8, 0.06),
+    0 4px 20px rgba(26, 18, 8, 0.08);
+}
+
+/* ============================================================
+   Code blocks
+   ============================================================ */
+:not(pre) > code {
+  background: rgba(138, 72, 0, 0.08) !important;
+  border: 1px solid rgba(138, 72, 0, 0.2) !important;
+  color: var(--color-code-text) !important;
+  font-family: var(--font-sans);
+}
+
+pre {
+  background: var(--color-crude) !important;
+  border-left: 3px solid var(--color-amber) !important;
+}
+
+/* ============================================================
+   Blockquote
+   ============================================================ */
+blockquote {
+  border-left-color: var(--color-gold);
+  background: rgba(197, 150, 60, 0.06);
+  font-style: italic;
+}
+
+/* ============================================================
+   Category Badges
+   ============================================================ */
+.badge--person       { background-color: var(--cat-person); color: #fff; }
+.badge--company      { background-color: var(--cat-company); color: #fff; }
+.badge--country      { background-color: var(--cat-country); color: #fff; }
+.badge--organisation { background-color: var(--cat-organisation); color: #fff; }
+.badge--event        { background-color: var(--cat-event); color: #fff; }
+.badge--concept      { background-color: var(--cat-concept); color: #fff; }
+.badge--place        { background-color: var(--cat-place); color: #fff; }
