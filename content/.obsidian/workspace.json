@@ -11,10 +11,14 @@
             "id": "7a061dae8d183db5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "help/installation.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Neuer Tab"
+              "title": "installation"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "help/installation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise"
+              "title": "Rückverweise auf installation"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "help/installation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Ausgehende Links"
+              "title": "Ausgehende Links von installation öffnen"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "help/installation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Gliederung"
+              "title": "Gliederung von installation"
             }
           }
         ]
@@ -176,40 +183,43 @@
       "bases:Neue Base erstellen": false
     }
   },
-  "active": "7a061dae8d183db5",
+  "active": "a8d7dcf6341934f6",
   "lastOpenFiles": [
-    "help/installation.md",
-    "help/getting-started.md",
-    "help/getting-stared.md",
-    "help/3.ai/2.llms.md",
-    "help/3.ai/1.mcp.md",
-    "help/3.ai",
-    "help/2.essentials/4.images-embeds.md",
-    "help/2.essentials/3.prose-components.md",
-    "help/2.essentials/2.code-blocks.md",
-    "help/2.essentials/1.markdown-syntax.md",
-    "help/2.essentials",
-    "help/1.getting-started/3.usage.md",
-    "help/1.getting-started/2.installation.md",
-    "help/1.getting-started/1.index.md",
-    "help/1.getting-started",
-    "help",
-    "people/abd-al-aziz-ibn-saud.md",
-    "locations/koenigreich-hedschas.md",
-    "index.md",
-    "3.ai/2.llms.md",
-    "3.ai/1.mcp.md",
-    "3.ai",
-    "2.essentials/4.images-embeds.md",
-    "2.essentials/3.prose-components.md",
-    "2.essentials/2.code-blocks.md",
-    "2.essentials/1.markdown-syntax.md",
-    "2.essentials",
-    "1.getting-started/3.usage.md",
-    "1.getting-started/2.installation.md",
-    "1.getting-started/1.index.md",
-    "1.getting-started",
-    "people/st-john-philby.md",
-    "events/saudi-arabien-konzession-1933.md"
+    "notes/cambridge-five.md",
+    "terms/predatory-pricing.md",
+    "notes/nord-stream.md",
+    "events/seeschlacht-bei-abukir-1798.md",
+    "people/jan-prosper-witkiewicz.md",
+    "people/ranjit-singh.md",
+    "notes/kulturkampf-im-deutschen-kaiserreich.md",
+    "notes/die-drei-hauptbereiche-des-downstream-sektors.md",
+    "people/alec-douglas-home.md",
+    "people/ernest-bevin.md",
+    "people/reginald-dyer.md",
+    "events/schlacht-von-buxar-1764.md",
+    "people/siraj-ud-daula.md",
+    "events/amerikanischer-buergerkrieg-1861-1865.md",
+    "people/georg-iii.md",
+    "events/schlacht-von-yorktown-1781.md",
+    "countries/niederlande.md",
+    "countries/spanien.md",
+    "events/schlacht-von-saratoga-1777.md",
+    "people/george-washington.md",
+    "events/boston-tea-party-1773.md",
+    "events/siebenjaehriger-krieg-1756-1763.md",
+    "terms/hinduismus.md",
+    "notes/vizekoenigreiche.md",
+    "people/saud-ibn-abd-al-aziz.md",
+    "notes/die-stute-auf-reisen.md",
+    "essays",
+    "mocs",
+    "organizations",
+    "events",
+    "cities",
+    "terms",
+    "people",
+    "countries",
+    "locations",
+    "publications"
   ]
 }

@@ -2,7 +2,23 @@
 const { seo } = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+
+const { data: searchNavigation } = await useAsyncData('search-navigation', () => Promise.all([
+  queryCollectionNavigation('docs'),
+  queryCollectionNavigation('chapters'),
+  queryCollectionNavigation('events'),
+  queryCollectionNavigation('essays'),
+  queryCollectionNavigation('people'),
+  queryCollectionNavigation('organizations'),
+  queryCollectionNavigation('locations'),
+  queryCollectionNavigation('countries'),
+  queryCollectionNavigation('cities'),
+  queryCollectionNavigation('notes'),
+  queryCollectionNavigation('terms'),
+  queryCollectionNavigation('mocs')
+]).then(results => results.flat()))
+
+const { data: files } = useLazyAsyncData('search', () => $fetch('/api/search'), {
   server: false
 })
 
@@ -44,7 +60,7 @@ provide('navigation', navigation)
     <ClientOnly>
       <LazyUContentSearch
         :files="files"
-        :navigation="navigation"
+        :navigation="searchNavigation"
       />
     </ClientOnly>
   </UApp>

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     enabled: true
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', 'leaflet/dist/leaflet.css'],
 
   content: {
     build: {
@@ -31,6 +31,22 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-07-11',
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'mermaid',
+        'leaflet',
+        '@vue-leaflet/vue-leaflet'
+      ]
+    }
+  },
+
+  build: {
+    transpile: ['@vue-leaflet/vue-leaflet']
+  },
 
   nitro: {
     prerender: {

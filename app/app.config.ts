@@ -1,13 +1,23 @@
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: 'amber',
-      neutral: 'slate'
+      primary: 'blue',
+      neutral: 'zinc'
     },
     footer: {
       slots: {
         root: 'border-t border-default',
         left: 'text-sm text-muted'
+      }
+    },
+    pageHero: {
+      slots: {
+        container: 'flex flex-col lg:grid py-8 sm:py-10 lg:py-12 gap-16 sm:gap-y-24'
+      }
+    },
+    pageSection: {
+      slots: {
+        container: 'flex flex-col lg:grid py-8 sm:py-12 lg:py-16 gap-8 sm:gap-16'
       }
     }
   },
@@ -15,7 +25,7 @@ export default defineAppConfig({
     siteName: 'Nuxt Docs Template'
   },
   header: {
-    title: '',
+    title: 'Schwarzes Gold',
     to: '/',
     logo: {
       alt: '',
