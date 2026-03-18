@@ -10,39 +10,46 @@ if (!publication.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-// Extract the very first chapter link from the publication body AST
-function findFirstHref(node: any): string | null {
-  if (node?.tag === 'a' && node.props?.href) return node.props.href
-  for (const child of (node?.children || [])) {
-    const found = findFirstHref(child)
-    if (found) return found
-  }
-  return null
-}
+const { publicationTocs } = useContentNav()
 
-const firstChapterPath = findFirstHref(publication.value.body)
-
-const { data: chapter } = await useAsyncData(
-  `pub-first-chapter-${route.path}`,
-  () => firstChapterPath
-    ? queryCollection('chapters').path(firstChapterPath).first()
-    : null
+const toc = computed(() =>
+  publicationTocs.value?.[route.path] || []
 )
 
 useSeoMeta({
-  title: chapter.value?.title ?? publication.value.title,
-  ogTitle: chapter.value?.title ?? publication.value.title
+  title: publication.value.title,
+  ogTitle: publication.value.title,
+  description: publication.value.subtitle,
+  ogDescription: publication.value.subtitle
 })
 </script>
 
 <template>
   <div v-if="publication">
     <UPageHeader
-      :title="chapter?.title ?? publication.title"
-      :description="!chapter ? publication.subtitle : undefined"
+      :title="publication.title"
+      :description="publication.subtitle"
     />
     <UPageBody>
-      <ContentRenderer v-if="chapter" :value="chapter" />
+      <div class="space-y-6">
+        <div v-for="part in toc" :key="part.title">
+          <h3 class="text-base font-semibold mb-2">{{ part.title }}</h3>
+          <ul class="space-y-1 pl-4">
+            <li v-for="ch in part.chapters" :key="ch.title">
+              <NuxtLink
+                v-if="ch.to"
+                :to="ch.to"
+                class="text-sm hover:underline"
+              >
+                {{ ch.title }}
+              </NuxtLink>
+              <span v-else class="text-sm opacity-40">
+                {{ ch.title }}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </UPageBody>
   </div>
 </template>

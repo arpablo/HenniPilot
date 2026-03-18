@@ -1,11 +1,14 @@
 <script setup lang="ts">
-const { header } = useAppConfig()
-const route = useRoute()
-const { contentItems, helpPages, publications } = useContentNav()
+import type { SectionKey } from '~/composables/useSidebarState'
 
-function isActive(to: string) {
-  return route.path === to || route.path.startsWith(to + '/')
-}
+const { header } = useAppConfig()
+const { activeSection, setSection } = useSidebarState()
+
+const tabs: Array<{ key: SectionKey, label: string, icon: string }> = [
+  { key: 'publikationen', label: 'Publikationen', icon: 'i-lucide-book' },
+  { key: 'materialien', label: 'Materialien', icon: 'i-lucide-archive' },
+  { key: 'hilfe', label: 'Hilfe', icon: 'i-lucide-help-circle' },
+]
 </script>
 
 <template>
@@ -13,6 +16,7 @@ function isActive(to: string) {
     :ui="{ center: 'flex-1' }"
     :to="header?.to || '/'"
   >
+    <!-- Default slot = center area: Search only -->
     <UContentSearchButton
       v-if="header?.search"
       :collapsed="false"
@@ -51,55 +55,38 @@ function isActive(to: string) {
         class="lg:hidden"
       />
 
-      <UColorModeButton v-if="header?.colorMode" />
+      <!-- Desktop tabs -->
+      <nav class="hidden lg:flex items-center gap-1">
+        <button
+          v-for="tab in tabs"
+          :key="tab.key"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer"
+          :class="activeSection === tab.key ? 'bg-white/15 font-semibold' : 'hover:bg-white/10 opacity-70 hover:opacity-100'"
+          @click="setSection(tab.key)"
+        >
+          <UIcon :name="tab.icon" class="size-4 text-primary" />
+          {{ tab.label }}
+        </button>
+      </nav>
 
-      <template v-if="header?.links">
-        <UButton
-          v-for="(link, index) of header.links"
-          :key="index"
-          v-bind="{ color: 'neutral', variant: 'ghost', ...link }"
-        />
-      </template>
+      <UColorModeButton v-if="header?.colorMode" />
     </template>
 
+    <!-- Mobile: Tabs + Sidebar content in hamburger menu -->
     <template #body>
-      <nav class="space-y-1 pb-4">
-        <p class="px-3 py-1 text-xs font-semibold uppercase tracking-wider opacity-50">Publikationen</p>
-        <NuxtLink
-          v-for="pub in publications"
-          :key="pub.path"
-          :to="pub.path"
-          class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-          :class="isActive(pub.path) ? 'bg-white/15 font-semibold' : 'hover:bg-white/10'"
+      <div class="flex gap-1 pb-3 border-b border-white/10 mb-3">
+        <button
+          v-for="tab in tabs"
+          :key="tab.key"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer"
+          :class="activeSection === tab.key ? 'bg-white/15 font-semibold' : 'hover:bg-white/10 opacity-70 hover:opacity-100'"
+          @click="setSection(tab.key)"
         >
-          <UIcon name="i-lucide-book" class="size-4 shrink-0" />
-          {{ pub.title }}
-        </NuxtLink>
-
-        <p class="px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wider opacity-50">Materialien</p>
-        <NuxtLink
-          v-for="item in contentItems"
-          :key="item.to"
-          :to="item.to"
-          class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-          :class="isActive(item.to) ? 'bg-white/15 font-semibold' : 'hover:bg-white/10'"
-        >
-          <UIcon :name="item.icon" class="size-4 shrink-0" />
-          {{ item.label }}
-        </NuxtLink>
-
-        <p class="px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wider opacity-50">Hilfe</p>
-        <NuxtLink
-          v-for="page in helpPages"
-          :key="page.path"
-          :to="page.path"
-          class="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-          :class="isActive(page.path) ? 'bg-white/15 font-semibold' : 'hover:bg-white/10'"
-        >
-          <UIcon name="i-lucide-file-text" class="size-4 shrink-0" />
-          {{ page.title }}
-        </NuxtLink>
-      </nav>
+          <UIcon :name="tab.icon" class="size-4 text-primary" />
+          {{ tab.label }}
+        </button>
+      </div>
+      <SidebarNav variant="mobile" />
     </template>
   </UHeader>
 </template>

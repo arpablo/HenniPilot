@@ -55,8 +55,6 @@ provide('navigation', navigation)
       </NuxtLayout>
     </UMain>
 
-    <AppFooter />
-
     <ClientOnly>
       <LazyUContentSearch
         :files="files"

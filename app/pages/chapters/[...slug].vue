@@ -10,6 +10,9 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+const chapterPath = computed(() => route.path)
+const { surround } = useChapterSurround(chapterPath)
+
 useSeoMeta({
   title: page.value.title,
   ogTitle: page.value.title,
@@ -20,12 +23,16 @@ useSeoMeta({
 
 <template>
   <div v-if="page">
-      <UPageHeader
-        :title="page.title"
-        :description="page.subtitle"
-      />
-      <UPageBody>
-        <ContentRenderer :value="page" />
-      </UPageBody>
-    </div>
+    <UPageHeader
+      :title="page.title"
+      :description="page.subtitle"
+    />
+    <UPageBody>
+      <ContentRenderer :value="page" />
+
+      <USeparator v-if="surround[0] || surround[1]" />
+
+      <UContentSurround :surround="surround" />
+    </UPageBody>
+  </div>
 </template>
