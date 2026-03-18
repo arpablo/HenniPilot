@@ -196,13 +196,3 @@ blockquote {
   border-radius: 0 6px 6px 0;
 }
 
-/* ============================================================
-   Category Badges
-   ============================================================ */
-.badge--person       { background-color: #8b3a1e; color: #fff; }
-.badge--company      { background-color: #1a4a6e; color: #fff; }
-.badge--country      { background-color: #2a5e2a; color: #fff; }
-.badge--organisation { background-color: #5a2a6e; color: #fff; }
-.badge--event        { background-color: #6e4a1a; color: #fff; }
-.badge--concept      { background-color: #2a5a5e; color: #fff; }
-.badge--place        { background-color: #4a5e1a; color: #fff; }
