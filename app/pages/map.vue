@@ -15,8 +15,8 @@ const markers = computed(() => {
   const all = [...(locations.value ?? []), ...(cities.value ?? [])]
   return all.flatMap((item) => {
     if (!item.location || item.location.length < 2) return []
-    const lat = parseFloat(item.location[0])
-    const lng = parseFloat(item.location[1])
+    const lat = parseFloat(item.location[0]!)
+    const lng = parseFloat(item.location[1]!)
     if (isNaN(lat) || isNaN(lng)) return []
     return [{ lat, lng, title: item.title, path: item.path }]
   })

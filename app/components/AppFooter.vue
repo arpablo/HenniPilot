@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { footer } = useAppConfig()
+const appConfig = useAppConfig() as unknown as { footer: { credits?: string, colorMode?: boolean, links?: Array<Record<string, unknown>> } }
+const footer = appConfig.footer
 </script>
 
 <template>

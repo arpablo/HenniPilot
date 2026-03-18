@@ -1,3 +1,5 @@
+import { queryCollectionSearchSections } from '@nuxt/content/server'
+
 export default defineEventHandler(async (event) => {
   const collections = [
     'docs', 'chapters', 'events', 'essays', 'people',

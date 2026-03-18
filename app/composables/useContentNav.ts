@@ -16,7 +16,7 @@ export function useContentNav() {
       chapterTitles[ch.path] = ch.title
     }
 
-    const pubs = await queryCollection('publications').select('path').order('title', 'ASC').all()
+    const pubs = await queryCollection('publications').select('path', 'title').order('title', 'ASC').all()
     const tocs: Record<string, TocPart[]> = {}
     for (const pub of pubs) {
       const full = await queryCollection('publications').path(pub.path).first()

@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
 
 const center = computed((): [number, number] => {
   if (props.markers.length === 0) return [30, 45]
-  if (props.markers.length === 1) return [props.markers[0].lat, props.markers[0].lng]
+  if (props.markers.length === 1) return [props.markers[0]!.lat, props.markers[0]!.lng]
   const lats = props.markers.map(m => m.lat)
   const lngs = props.markers.map(m => m.lng)
   return [

@@ -44,7 +44,8 @@ export function useLinkPreview() {
     open.value = true
 
     try {
-      const content = await queryCollection(collection).path(path).first()
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const content = await queryCollection(collection as any).path(path).first()
       previewContent.value = content
     } catch {
       previewContent.value = null

@@ -30,7 +30,7 @@ const expandedParts = ref<Set<number>>(new Set())
 // Auto-expand the part containing the active chapter
 watch([() => route.path, currentToc], () => {
   for (let i = 0; i < currentToc.value.length; i++) {
-    const part = currentToc.value[i]
+    const part = currentToc.value[i]!
     if (part.chapters.some(ch => ch.to && isActive(ch.to))) {
       expandedParts.value.add(i)
     }

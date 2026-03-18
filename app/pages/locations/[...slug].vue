@@ -17,8 +17,8 @@ useSeoMeta({
 
 const marker = computed(() => {
   if (!page.value?.location || page.value.location.length < 2) return null
-  const lat = parseFloat(page.value.location[0])
-  const lng = parseFloat(page.value.location[1])
+  const lat = parseFloat(page.value.location[0]!)
+  const lng = parseFloat(page.value.location[1]!)
   if (isNaN(lat) || isNaN(lng)) return null
   return [{ lat, lng, title: page.value.title }]
 })

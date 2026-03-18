@@ -32,7 +32,8 @@ useSeoMeta({
 
       <USeparator v-if="surround[0] || surround[1]" />
 
-      <UContentSurround :surround="surround" />
+      <!-- eslint-disable-next-line vue/no-casting-value -->
+      <UContentSurround :surround="(surround as any)" />
     </UPageBody>
   </div>
 </template>
