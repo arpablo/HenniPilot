@@ -12,8 +12,14 @@ const { data: items } = await useAsyncData('countries-index', () =>
     <UPageHeader title="Länder" />
     <UPageBody>
       <ul class="space-y-2">
-        <li v-for="item in items" :key="item.path">
-          <NuxtLink :to="item.path" class="hover:underline">{{ item.title }}</NuxtLink>
+        <li
+          v-for="item in items"
+          :key="item.path"
+        >
+          <NuxtLink
+            :to="item.path"
+            class="hover:underline"
+          >{{ item.title }}</NuxtLink>
         </li>
       </ul>
     </UPageBody>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function useContentNav() {
   const { data: helpPages } = useAsyncData('help-nav', () =>
     queryCollection('docs').select('title', 'path').order('path', 'ASC').all()
@@ -36,7 +37,7 @@ export function useContentNav() {
     { label: 'Notizen', icon: 'i-lucide-notebook-text', to: '/notes' },
     { label: 'Begriffe', icon: 'i-lucide-book-marked', to: '/terms' },
     { label: 'Maps of Content', icon: 'i-lucide-map', to: '/mocs' },
-    { label: 'Karte', icon: 'i-lucide-globe-2', to: '/map' },
+    { label: 'Karte', icon: 'i-lucide-globe-2', to: '/map' }
   ]
 
   return { contentItems, helpPages, publications, publicationTocs }

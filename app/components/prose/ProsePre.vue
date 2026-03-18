@@ -26,7 +26,13 @@ onMounted(async () => {
 
 <template>
   <ClientOnly v-if="language === 'mermaid'">
-    <div class="my-6 overflow-x-auto" v-html="svg" />
+    <div
+      class="my-6 overflow-x-auto"
+      v-html="svg"
+    />
   </ClientOnly>
-  <pre v-else :class="props.class"><slot /></pre>
+  <pre
+    v-else
+    :class="props.class"
+  ><slot /></pre>
 </template>

@@ -15,9 +15,18 @@ const { data: items } = await useAsyncData('events-index', () =>
     <UPageHeader title="Ereignisse" />
     <UPageBody>
       <ul class="space-y-2">
-        <li v-for="item in items" :key="item.path">
-          <NuxtLink :to="item.path" class="hover:underline">
-            <span v-if="item.start" class="text-sm text-muted mr-2">{{ item.start?.slice(0, 4) }}</span>{{ item.title }}
+        <li
+          v-for="item in items"
+          :key="item.path"
+        >
+          <NuxtLink
+            :to="item.path"
+            class="hover:underline"
+          >
+            <span
+              v-if="item.start"
+              class="text-sm text-muted mr-2"
+            >{{ item.start?.slice(0, 4) }}</span>{{ item.title }}
           </NuxtLink>
         </li>
       </ul>

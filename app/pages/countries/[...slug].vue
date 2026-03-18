@@ -18,9 +18,9 @@ useSeoMeta({
 
 <template>
   <div v-if="page">
-      <UPageHeader :title="page.title" />
-      <UPageBody>
-        <ContentRenderer :value="page" />
-      </UPageBody>
-    </div>
+    <UPageHeader :title="page.title" />
+    <UPageBody>
+      <ContentRenderer :value="page" />
+    </UPageBody>
+  </div>
 </template>

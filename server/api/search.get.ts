@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
   )
 
   return results
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .filter((r): r is PromiseFulfilledResult<any[]> => r.status === 'fulfilled')
     .flatMap(r => r.value)
 })

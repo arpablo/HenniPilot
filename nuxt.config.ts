@@ -26,11 +26,25 @@ export default defineNuxtConfig({
     }
   },
 
+  build: {
+    transpile: ['@vue-leaflet/vue-leaflet']
+  },
+
   experimental: {
     asyncContext: true
   },
 
   compatibilityDate: '2024-07-11',
+
+  nitro: {
+    prerender: {
+      routes: [
+        '/'
+      ],
+      crawlLinks: true,
+      autoSubfolderIndex: false
+    }
+  },
 
   vite: {
     optimizeDeps: {
@@ -41,20 +55,6 @@ export default defineNuxtConfig({
         'leaflet',
         '@vue-leaflet/vue-leaflet'
       ]
-    }
-  },
-
-  build: {
-    transpile: ['@vue-leaflet/vue-leaflet']
-  },
-
-  nitro: {
-    prerender: {
-      routes: [
-        '/'
-      ],
-      crawlLinks: true,
-      autoSubfolderIndex: false
     }
   },
 

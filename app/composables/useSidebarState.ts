@@ -8,13 +8,6 @@ export function useSidebarState() {
 
   const router = useRouter()
 
-  // Pages that have a sidebar layout
-  const sidebarPaths = ['/publications', '/chapters', '/events', '/essays', '/people', '/organizations', '/locations', '/countries', '/cities', '/notes', '/terms', '/mocs', '/help']
-
-  function hasSidebar(path: string): boolean {
-    return sidebarPaths.some(p => path.startsWith(p))
-  }
-
   const defaultRoutes: Record<SectionKey, string> = {
     publikationen: '/publications',
     materialien: '/chapters',

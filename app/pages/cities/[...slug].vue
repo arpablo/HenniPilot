@@ -28,7 +28,13 @@ const marker = computed(() => {
   <div v-if="page">
     <UPageHeader :title="page.title" />
     <UPageBody>
-      <GeoMap v-if="marker" :markers="marker" height="250px" :zoom="7" class="mb-6" />
+      <GeoMap
+        v-if="marker"
+        :markers="marker"
+        height="250px"
+        :zoom="7"
+        class="mb-6"
+      />
       <ContentRenderer :value="page" />
     </UPageBody>
   </div>

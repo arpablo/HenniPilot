@@ -7,7 +7,7 @@ const { open, previewContent, loading, closePreview, navigateToPreview } = useLi
     v-model:open="open"
     side="right"
     :ui="{
-      content: 'w-[70vw] max-w-4xl',
+      content: 'w-[70vw] max-w-4xl'
     }"
   >
     <template #content>
@@ -37,15 +37,24 @@ const { open, previewContent, loading, closePreview, navigateToPreview } = useLi
 
         <!-- Body -->
         <div class="flex-1 overflow-y-auto px-6 py-6">
-          <div v-if="loading" class="flex items-center justify-center py-20">
-            <UIcon name="i-lucide-loader-2" class="size-6 animate-spin opacity-50" />
+          <div
+            v-if="loading"
+            class="flex items-center justify-center py-20"
+          >
+            <UIcon
+              name="i-lucide-loader-2"
+              class="size-6 animate-spin opacity-50"
+            />
           </div>
           <div v-else-if="previewContent">
             <UPageBody>
               <ContentRenderer :value="previewContent" />
             </UPageBody>
           </div>
-          <div v-else class="text-center py-20 opacity-50">
+          <div
+            v-else
+            class="text-center py-20 opacity-50"
+          >
             Inhalt konnte nicht geladen werden.
           </div>
         </div>

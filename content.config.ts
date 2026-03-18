@@ -12,7 +12,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         subtitle: z.string().optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     docs: defineCollection({
@@ -37,7 +37,7 @@ export default defineContentConfig({
         title: z.string(),
         country: z.string().optional(),
         location: z.array(z.string()).optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     countries: defineCollection({
@@ -50,7 +50,7 @@ export default defineContentConfig({
         population: z.number().optional(),
         flag: z.string().optional(),
         globe: z.string().optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     essays: defineCollection({
@@ -62,7 +62,7 @@ export default defineContentConfig({
         tags: z.array(z.string()).optional(),
         topics: z.array(z.string()).optional(),
         sources: z.array(z.string()).optional(),
-        areas: z.array(z.string()).optional(),
+        areas: z.array(z.string()).optional()
       })
     }),
     locations: defineCollection({
@@ -76,7 +76,7 @@ export default defineContentConfig({
         aliases: z.array(z.string()).optional(),
         related: z.array(z.string()).optional(),
         location: z.array(z.string()).optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     chapters: defineCollection({
@@ -87,7 +87,7 @@ export default defineContentConfig({
         subtitle: z.string().optional(),
         publications: z.array(z.string()).optional(),
         tags: z.array(z.string()).optional(),
-        timelines: z.array(z.string()).optional(),
+        timelines: z.array(z.string()).optional()
       })
     }),
     mocs: defineCollection({
@@ -95,7 +95,7 @@ export default defineContentConfig({
       source: { include: 'mocs/**', prefix: '/mocs' },
       schema: z.object({
         title: z.string(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     notes: defineCollection({
@@ -104,7 +104,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         categories: z.array(z.string()).optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     organizations: defineCollection({
@@ -115,7 +115,7 @@ export default defineContentConfig({
         categories: z.array(z.string()).optional(),
         founded: z.string().optional(),
         areas: z.array(z.string()).optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     people: defineCollection({
@@ -127,7 +127,7 @@ export default defineContentConfig({
         born: z.string().optional(),
         died: z.string().optional(),
         country: z.string().optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     terms: defineCollection({
@@ -135,7 +135,7 @@ export default defineContentConfig({
       source: { include: 'terms/**', prefix: '/terms' },
       schema: z.object({
         title: z.string(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     books: defineCollection({
@@ -147,7 +147,7 @@ export default defineContentConfig({
         isbn: z.string().optional(),
         publisher: z.string().optional(),
         published: z.string().optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
     }),
     events: defineCollection({
@@ -161,9 +161,9 @@ export default defineContentConfig({
         categories: z.array(z.string()).optional(),
         participants: z.array(z.string()).optional(),
         aliases: z.array(z.string()).optional(),
-        tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional()
       })
-    }),
+    })
 
   }
 })

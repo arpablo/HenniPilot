@@ -3,6 +3,7 @@ import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet'
 import L from 'leaflet'
 
 // Fix Leaflet's broken default icon paths in Vite/Nuxt
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 delete (L.Icon.Default.prototype as any)._getIconUrl
 L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
@@ -54,7 +55,10 @@ function onMapReady() {
 </script>
 
 <template>
-  <div :style="`height: ${height}`" class="rounded-lg border border-[var(--ui-border)]">
+  <div
+    :style="`height: ${height}`"
+    class="rounded-lg border border-[var(--ui-border)]"
+  >
     <LMap
       ref="mapRef"
       :zoom="zoom"
@@ -73,10 +77,18 @@ function onMapReady() {
         :lat-lng="[marker.lat, marker.lng]"
       >
         <LPopup>
-          <NuxtLink v-if="marker.path" :to="marker.path" class="font-semibold hover:underline" style="color: var(--color-link)">
+          <NuxtLink
+            v-if="marker.path"
+            :to="marker.path"
+            class="font-semibold hover:underline"
+            style="color: var(--color-link)"
+          >
             {{ marker.title }}
           </NuxtLink>
-          <span v-else class="font-semibold">{{ marker.title }}</span>
+          <span
+            v-else
+            class="font-semibold"
+          >{{ marker.title }}</span>
         </LPopup>
       </LMarker>
     </LMap>

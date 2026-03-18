@@ -11,7 +11,7 @@ const collectionMap: Record<string, string> = {
   '/terms/': 'terms',
   '/mocs/': 'mocs',
   '/help/': 'docs',
-  '/publications/': 'publications',
+  '/publications/': 'publications'
 }
 
 function collectionFromPath(path: string): string | null {
@@ -26,7 +26,8 @@ export function useLinkPreview() {
 
   const open = useState('link-preview-open', () => false)
   const previewPath = useState<string | null>('link-preview-path', () => null)
-  const previewContent = useState<any>('link-preview-content', () => null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const previewContent = useState<Record<string, any> | null>('link-preview-content', () => null)
   const loading = useState('link-preview-loading', () => false)
 
   async function openPreview(path: string) {

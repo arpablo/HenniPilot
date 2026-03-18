@@ -17,5 +17,5 @@ const isLarge = computed(() => props.class?.includes('large'))
     :width="width"
     :height="height"
     :class="isLarge ? 'max-w-full h-auto rounded-lg' : 'max-w-[220px] h-auto rounded-lg'"
-  />
+  >
 </template>

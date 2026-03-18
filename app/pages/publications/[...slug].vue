@@ -32,10 +32,18 @@ useSeoMeta({
     />
     <UPageBody>
       <div class="space-y-6">
-        <div v-for="part in toc" :key="part.title">
-          <h3 class="text-base font-semibold mb-2">{{ part.title }}</h3>
+        <div
+          v-for="part in toc"
+          :key="part.title"
+        >
+          <h3 class="text-base font-semibold mb-2">
+            {{ part.title }}
+          </h3>
           <ul class="space-y-1 pl-4">
-            <li v-for="ch in part.chapters" :key="ch.title">
+            <li
+              v-for="ch in part.chapters"
+              :key="ch.title"
+            >
               <NuxtLink
                 v-if="ch.to"
                 :to="ch.to"
@@ -43,7 +51,10 @@ useSeoMeta({
               >
                 {{ ch.title }}
               </NuxtLink>
-              <span v-else class="text-sm opacity-40">
+              <span
+                v-else
+                class="text-sm opacity-40"
+              >
                 {{ ch.title }}
               </span>
             </li>

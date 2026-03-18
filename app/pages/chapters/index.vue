@@ -15,10 +15,19 @@ const { data: chapters } = await useAsyncData('chapters-index', () =>
     <UPageHeader title="Kapitel" />
     <UPageBody>
       <ul class="space-y-4">
-        <li v-for="chapter in chapters" :key="chapter.path">
-          <NuxtLink :to="chapter.path" class="block hover:underline">
+        <li
+          v-for="chapter in chapters"
+          :key="chapter.path"
+        >
+          <NuxtLink
+            :to="chapter.path"
+            class="block hover:underline"
+          >
             <p class="font-semibold">{{ chapter.title }}</p>
-            <p v-if="chapter.subtitle" class="text-sm text-muted">{{ chapter.subtitle }}</p>
+            <p
+              v-if="chapter.subtitle"
+              class="text-sm text-muted"
+            >{{ chapter.subtitle }}</p>
           </NuxtLink>
         </li>
       </ul>

@@ -13,7 +13,7 @@ const [{ data: locations }, { data: cities }] = await Promise.all([
 
 const markers = computed(() => {
   const all = [...(locations.value ?? []), ...(cities.value ?? [])]
-  return all.flatMap(item => {
+  return all.flatMap((item) => {
     if (!item.location || item.location.length < 2) return []
     const lat = parseFloat(item.location[0])
     const lng = parseFloat(item.location[1])
@@ -31,7 +31,10 @@ const markers = computed(() => {
       </template>
     </UPageHeader>
     <UPageBody>
-      <GeoMap :markers="markers" height="600px" />
+      <GeoMap
+        :markers="markers"
+        height="600px"
+      />
     </UPageBody>
   </div>
 </template>
