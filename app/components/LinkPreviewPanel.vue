@@ -40,11 +40,10 @@ const { open, previewContent, loading, closePreview, navigateToPreview } = useLi
           <div v-if="loading" class="flex items-center justify-center py-20">
             <UIcon name="i-lucide-loader-2" class="size-6 animate-spin opacity-50" />
           </div>
-          <div v-else-if="previewContent" class="prose prose-sm max-w-none">
-            <p v-if="previewContent.subtitle || previewContent.description" class="text-muted text-sm mb-4">
-              {{ previewContent.subtitle || previewContent.description }}
-            </p>
-            <ContentRenderer :value="previewContent" />
+          <div v-else-if="previewContent">
+            <UPageBody>
+              <ContentRenderer :value="previewContent" />
+            </UPageBody>
           </div>
           <div v-else class="text-center py-20 opacity-50">
             Inhalt konnte nicht geladen werden.
