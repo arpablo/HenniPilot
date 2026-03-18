@@ -9,5 +9,7 @@
     <UContainer>
       <slot />
     </UContainer>
+
+    <LinkPreviewPanel />
   </UPage>
 </template>

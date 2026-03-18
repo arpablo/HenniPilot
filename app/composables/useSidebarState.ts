@@ -37,10 +37,12 @@ export function useSidebarState() {
   }
 
   watch(() => route.path, (path) => {
-    if (path.startsWith('/publications/')) {
+    if (path === '/publications' || path.startsWith('/publications/')) {
       activeSection.value = 'publikationen'
-      selectedPublication.value = path
-    } else if (path.startsWith('/help/')) {
+      if (path.startsWith('/publications/')) {
+        selectedPublication.value = path
+      }
+    } else if (path === '/help' || path.startsWith('/help/')) {
       activeSection.value = 'hilfe'
     } else if (path.startsWith('/chapters/')) {
       // Keep publication TOC open if a chapter is being viewed

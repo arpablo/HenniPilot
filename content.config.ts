@@ -138,6 +138,18 @@ export default defineContentConfig({
         tags: z.array(z.string()).optional(),
       })
     }),
+    books: defineCollection({
+      type: 'page',
+      source: { include: 'books/**', prefix: '/books' },
+      schema: z.object({
+        title: z.string(),
+        authors: z.array(z.string()).optional(),
+        isbn: z.string().optional(),
+        publisher: z.string().optional(),
+        published: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+      })
+    }),
     events: defineCollection({
       type: 'page',
       source: { include: 'events/**', prefix: '/events' },

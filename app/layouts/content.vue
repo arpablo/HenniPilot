@@ -14,5 +14,7 @@ const showWideSidebar = computed(() => activeSection.value === 'publikationen' &
     <UContainer>
       <slot />
     </UContainer>
+
+    <LinkPreviewPanel />
   </UPage>
 </template>

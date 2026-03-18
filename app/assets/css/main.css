@@ -121,13 +121,13 @@
    ============================================================ */
 html {
   font-family: var(--font-sans);
-  color: #1d1d1f;
-  background-color: #ffffff;
+  color: var(--ui-text);
+  background-color: var(--ui-bg);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: #1d1d1f;
+  color: var(--ui-text-highlighted);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
