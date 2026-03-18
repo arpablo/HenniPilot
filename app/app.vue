@@ -18,7 +18,20 @@ const { data: searchNavigation } = await useAsyncData('search-navigation', () =>
   queryCollectionNavigation('mocs')
 ]).then(results => results.flat()))
 
-const { data: files } = useLazyAsyncData('search', () => $fetch('/api/search'), {
+const { data: files } = useLazyAsyncData('search', () => Promise.all([
+  queryCollectionSearchSections('docs'),
+  queryCollectionSearchSections('chapters'),
+  queryCollectionSearchSections('events'),
+  queryCollectionSearchSections('essays'),
+  queryCollectionSearchSections('people'),
+  queryCollectionSearchSections('organizations'),
+  queryCollectionSearchSections('locations'),
+  queryCollectionSearchSections('countries'),
+  queryCollectionSearchSections('cities'),
+  queryCollectionSearchSections('notes'),
+  queryCollectionSearchSections('terms'),
+  queryCollectionSearchSections('mocs')
+]).then(results => results.flat()), {
   server: false
 })
 
