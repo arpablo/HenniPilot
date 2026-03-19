@@ -43,14 +43,26 @@ Inhalte entdecken
 
   :::u-page-feature
   ---
-  icon: i-lucide-book-open
-  to: /chapters
+  icon: i-lucide-library
+  to: /books
   ---
   #title
-  Kapitel
+  Bücher
 
   #description
-  Die Geschichte des Öls im Nahen Osten – von den ersten Konzessionen bis zur modernen Geopolitik.
+  Verwendete Literatur und Quellenwerke zur Geschichte des Öls im Nahen Osten.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-lucide-tags
+  to: /tags
+  ---
+  #title
+  Tags
+
+  #description
+  Alle Inhalte nach Schlagworten durchsuchen und thematisch filtern.
   :::
 
   :::u-page-feature
@@ -161,6 +173,7 @@ Inhalte entdecken
   Glossar zentraler Konzepte – Konzessionssystem, Posted Price, Rentierstaat und mehr.
   :::
 
+  
   :::u-page-feature
   ---
   icon: i-lucide-map

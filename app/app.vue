@@ -15,7 +15,8 @@ const { data: searchNavigation } = await useAsyncData('search-navigation', () =>
   queryCollectionNavigation('cities'),
   queryCollectionNavigation('notes'),
   queryCollectionNavigation('terms'),
-  queryCollectionNavigation('mocs')
+  queryCollectionNavigation('mocs'),
+  queryCollectionNavigation('books')
 ]).then(results => results.flat()))
 
 const { data: files } = useLazyAsyncData('search', () => Promise.all([
@@ -30,7 +31,8 @@ const { data: files } = useLazyAsyncData('search', () => Promise.all([
   queryCollectionSearchSections('cities'),
   queryCollectionSearchSections('notes'),
   queryCollectionSearchSections('terms'),
-  queryCollectionSearchSections('mocs')
+  queryCollectionSearchSections('mocs'),
+  queryCollectionSearchSections('books')
 ]).then(results => results.flat()), {
   server: false
 })

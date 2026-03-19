@@ -37,6 +37,7 @@ export function useContentNav() {
     { label: 'Notizen', icon: 'i-lucide-notebook-text', to: '/notes' },
     { label: 'Begriffe', icon: 'i-lucide-book-marked', to: '/terms' },
     { label: 'Maps of Content', icon: 'i-lucide-map', to: '/mocs' },
+    { label: 'Tags', icon: 'i-lucide-tags', to: '/tags' },
     { label: 'Karte', icon: 'i-lucide-globe-2', to: '/map' }
   ]
 
